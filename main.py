@@ -7,10 +7,10 @@ STOCK = "TSLA"
 COMPANY_NAME = "Tesla"
 
 STOCK_END_POINT = "https://www.alphavantage.co/query"
-STOCK_API_KEY = "3CTJ3CF50JTPPBJN"
+STOCK_API_KEY = "apikey"
 
 NEWS_END_POINT = "https://newsapi.org/v2/everything"
-NEWS_API_KEY = "61a55dccead94cd6948dd751a842785b"
+NEWS_API_KEY = "apikey"
 
 #  TODO - 1 Extract close price from API generated
 #   calculate percentage difference for yesterday and day before yesterday
@@ -57,8 +57,8 @@ articles = news_report["articles"]
 #   STEP 3: Use https://www.twilio.com
 #   Send a seperate message with the percentage change and each article's title and description to your phone number.
 
-account_sid = "ACe96dae203aa3443275c0f123e645e3bf"
-auth_token = "65e6e653e6e504de8059a14b58214d70"
+account_sid = "sid"
+auth_token = "roken"
 stock_subject = ""
 if percentage >= 5:
     if yesterday_close > previous_day_close:
@@ -75,7 +75,7 @@ if percentage >= 5:
             .create(
             body=f"{stock_subject}\nArticle.no: {i + 1}\nHeadline: {articles[i]['title']}\n"
                  f"Brief: {articles[i]['description']}",
-            from_='+19036627947',
-            to='+919952783610')
+            from_='from',
+            to='to')
         time.sleep(10)
 
